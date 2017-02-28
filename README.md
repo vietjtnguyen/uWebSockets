@@ -123,6 +123,15 @@ Compile with Make:
 * `make`
 * `sudo make install`
 
+Compile with CMake:
+* `mkdir build`
+* `cd build`
+* `cmake ..`
+* `make`
+* `make install`
+
+With CMake the installation destintion can be specified with `-DCMAKE_INSTALL_PREFIX=/path/to/install`. Custom locations to OpenSSL or zlib can be specified with `-DCMAKE_PREFIX_PATH="/path/to/ssl-install;/path/to/zlib-install"`. Examples are automatically built unless you specify `-DBUILD_EXAMPLES=OFF`.
+
 ###### Windows
 Compile with Visual C++ Community Edition 2015 or later. This workflow requires previous usage of vcpkg:
 * Open the VC++ project file
