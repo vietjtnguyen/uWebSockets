@@ -1,16 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 project(uWebSockets CXX)
 
-# Build shared libraries by default. This can be overridden at configuration
-# time on the command line by adding the flag "-DBUILD_SHARED_LIBS=OFF".
-if( NOT BUILD_SHARED_LIBS )
-  set(
-    BUILD_SHARED_LIBS ON
-    CACHE BOOL "Determines whether or not libraries will be built shared or not (default: ON)"
-    FORCE
-  )
-endif()
-
 # Look for where the OpenSSL is installed. Custom locations can be specified at
 # configuration time on the command line by adding the installation prefix to
 # "-DCMAKE_PREFIX_PATH".
@@ -39,7 +29,7 @@ install(DIRECTORY "${CMAKE_BINARY_DIR}/include/uWS" DESTINATION include)
 # Identify all of the library sources and add the uWS library target. Also add
 # a library installation target.
 file(GLOB libuWS_src "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
-add_library(libuWS ${libuWS_src})
+add_library(libuWS SHARED ${libuWS_src})
 set_target_properties(
   libuWS
   PROPERTIES
